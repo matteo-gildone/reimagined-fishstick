@@ -2,31 +2,23 @@
 
 ```mermaid
 graph LR
-  subgraph Consumers
-    A[Consumer 1]
-    B[Consumer 2]
-    C[...]
-    D[Consumer n]
+  subgraph "Data Retrieval"
+    A[Consumer]
+    B[Data service]
   end
 
-  subgraph Services
-    E[Design system service]
-    F[Data service]
+  subgraph "HTML Generation"
+    C[Design system service]
+    D[Design system]
   end
 
-  subgraph Design
-    G[Design system]
-  end
+  A --> |"1 Fetch data"| B
+  B --> |"2 Return data"| A
+  A --> |"3 Send data/config"| C
+  C --> |"4 Compile templates"| C
+  C --> |"5 Return HTML"| A
 
-  A --> |"Fetch HTML"| E
-  A --> |"Fetch data"| F
-  B --> |"Fetch HTML"| E
-  B --> |"Fetch data"| F
-  D --> |"Fetch HTML"| E
-  D --> |"Fetch data"| F
-
-  E --> |"Use"| G
-  E --> |"Fetch data"| F
+  C --> |"Use"| D
 ```
 
 ```mermaid
@@ -64,27 +56,10 @@ sequenceDiagram
   participant C as Consumer
   participant DS as Data service
   participant DSS as Design system service
-    alt Needs data from Data service
-        C->>DS: Request data
-        DS->>C: Return data
-        C->>DSS: Send data/configurations
-        DSS->>C: Return HTML
-    else Simple configuration
-        C->>DSS: Send data/configurations
-        DSS->>C: Return HTML
-    end
-```
 
-```mermaid
-sequenceDiagram
-  participant C as Consumer
-  participant DSS as Design system service
-  participant DS as Data service
-    C->>DSS: Request component
-    alt Needs data from Data service
-        DSS->>DS: Request data
-        DS->>DSS: Return data
-    else Simple configuration
-        DSS->>C: Return HTML
-    end
+  C->>DS: Request data
+  DS-->>C: Return data
+  C->>DSS: Send data/configurations
+  DSS->>DSS: Compile templates with data/configurations
+  DSS-->>C: Return HTML
 ```
