@@ -28,3 +28,19 @@ graph LR
   E --> |"Use"| G
   E --> |"Fetch data"| F
 ```
+
+## How does it work?
+
+```mermaid
+sequenceDiagram
+  participant C as Consumer
+  participant DSS as Design system service
+  participant DS as Data service
+    C->>DSS: Request component
+    alt Needs data from Data service
+        DSS->>DS: Request data
+        DS->>DSS: Return data
+    else Simple configuration
+        DSS->>C: Return HTML
+    end
+```
