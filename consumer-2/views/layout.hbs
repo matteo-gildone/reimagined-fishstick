@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/img/favicons/favicon.svg" type="image/svg+xml">
+    <title>Consumer 1 - {{title}}</title>
+    <!-- https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md#implementation-details -->
+    <!-- https://github.com/springernature/frontend-playbook/blob/main/practices/javascript-styling.md -->
+    <script>(function (e) {
+        var t = e.documentElement, n = e.implementation;
+        t.className = 'js';
+    })(document);</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>{{styles}}</style>
+</head>
+<body data-eds-visual-test="body">
+{{{body}}}
+</body>
+</html>

@@ -1,164 +1,22 @@
 [
   {
     "cardLabel": "Journal",
-    "dataAttributes": [
-      {
-        "name": "test",
-        "value": "my-id-journal-card"
-      }
-    ],
-    "picture": {
-      "sources": [
-        {
-          "media": "(min-width: 480px)",
-          "dimensions": {
-            "width": "115px",
-            "height": "152px"
-          },
-          "srcsetUrls": "https://media.springernature.com/w115/springer-static/cover-hires/journal/42452?as=webp, https://media.springernature.com/w230/springer-static/cover-hires/journal/42452?as=webp 2x"
-        }
-      ],
-      "img": {
-        "src": "https://media.springernature.com/w184/springer-static/cover-hires/journal/42452?as=webp",
-        "dimensions": {
-          "width": "60px",
-          "height": "80px"
-        },
-        "srcset": "https://media.springernature.com/w184/springer-static/cover-hires/journal/42452?as=webp 2x",
-        "alt": "Discover Artificial Intelligence"
-      }
-    },
-    "title": {
-      "text": "Discover Artificial Intelligence",
-      "headingLevel": "2",
-      "linkUrl": "https://example.com",
-      "dataAttributes": [
-        {
-          "name": "track-context",
-          "value": "springer-link"
-        },
-        {
-          "name": "track-content-type",
-          "value": "collection"
-        },
-        {
-          "name": "track-label",
-          "value": "collection"
-        }
-      ]
-    },
+    "title": "Discover Artificial Intelligence",
     "summary": "Discover Artificial Intelligence is an open access journal publishing research covering all aspects of artificial intelligence in theory and..."
   },
   {
     "cardLabel": "Journal",
-    "picture": {
-      "sources": [
-        {
-          "media": "(min-width: 480px)",
-          "dimensions": {
-            "width": "115px",
-            "height": "152px"
-          },
-          "srcsetUrls": "https://media.springernature.com/w115/springer-static/cover-hires/journal/42452?as=webp, https://media.springernature.com/w230/springer-static/cover-hires/journal/42452?as=webp 2x"
-        }
-      ],
-      "img": {
-        "src": "https://media.springernature.com/w184/springer-static/cover-hires/journal/42452?as=webp",
-        "dimensions": {
-          "width": "60px",
-          "height": "80px"
-        },
-        "srcset": "https://media.springernature.com/w184/springer-static/cover-hires/journal/42452?as=webp 2x",
-        "alt": "Discover Artificial Intelligence"
-      }
-    },
-    "title": {
-      "text": "Discover Artificial Intelligence",
-      "headingLevel": "2",
-      "linkUrl": "https://example.com",
-      "dataAttributes": [
-        {
-          "name": "track-context",
-          "value": "springer-link"
-        },
-        {
-          "name": "track-content-type",
-          "value": "collection"
-        },
-        {
-          "name": "track-label",
-          "value": "collection"
-        }
-      ]
-    },
+    "title": "Discover Artificial Intelligence",
     "summary": "Discover Artificial Intelligence is an open access journal publishing research covering all aspects of artificial intelligence in theory and...",
-    "metadata": [
-      {
-        "title": "Publishing model",
-        "text": "Open access"
-      }
-    ]
+    "publishingModel": "Open access"
   },
   {
     "cardLabel": "Journal",
-    "picture": {
-      "sources": [
-        {
-          "media": "(min-width: 480px)",
-          "dimensions": {
-            "width": "115px",
-            "height": "152px"
-          },
-          "srcsetUrls": "https://media.springernature.com/w115/springer-static/cover-hires/journal/42452?as=webp, https://media.springernature.com/w230/springer-static/cover-hires/journal/42452?as=webp 2x"
-        }
-      ],
-      "img": {
-        "src": "https://media.springernature.com/w184/springer-static/cover-hires/journal/42452?as=webp",
-        "dimensions": {
-          "width": "60px",
-          "height": "80px"
-        },
-        "srcset": "https://media.springernature.com/w184/springer-static/cover-hires/journal/42452?as=webp 2x",
-        "alt": "Discover Artificial Intelligence"
-      }
-    },
-    "title": {
-      "text": "Discover Artificial Intelligence",
-      "headingLevel": "2",
-      "linkUrl": "https://example.com",
-      "dataAttributes": [
-        {
-          "name": "track-context",
-          "value": "springer-link"
-        },
-        {
-          "name": "track-content-type",
-          "value": "collection"
-        },
-        {
-          "name": "track-label",
-          "value": "collection"
-        }
-      ]
-    },
+    "title": "Discover Artificial Intelligence",
     "summary": "Discover Artificial Intelligence is an open access journal publishing research covering all aspects of artificial intelligence in theory and...",
-    "metadata": [
-      {
-        "title": "Publishing model",
-        "text": "Open access"
-      },
-      {
-        "title": "Impact factor",
-        "text": "1.456 (2023)"
-      },
-      {
-        "title": "Download",
-        "text": "23,789 (2022)"
-      },
-      {
-        "title": "Submission to first decision (median)",
-        "text": "Not available"
-      }
-    ]
+    "publishingModel": "Open access",
+    "impactFactor": "1.456 (2023)",
+    "download": "23,789 (2022)",
+    "submission": "Not available"
   }
 ]
