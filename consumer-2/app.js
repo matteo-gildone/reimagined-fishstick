@@ -29,7 +29,6 @@ app.get('/', async (req, res, next) => {
         ;
         res.render('index', {
             title: 'Homepage',
-            styles: 'comming from service',
             headerPlaceholder: headerResponse.data,
             journalListPlaceholder: journalListResponse.data
         });
