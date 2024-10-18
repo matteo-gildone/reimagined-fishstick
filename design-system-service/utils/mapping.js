@@ -1,16 +1,16 @@
-const journalCardMapping = {
+const journalCardLabels = {
     "publishingModel": "Publishing model",
     "impactFactor": "Impact factor",
     "download": "Download",
     "submission": "Submission to first decision (median)"
 };
 
-const createMapping = list => {
+const journalCardLabelMapping = list => {
     return list.map(item => {
         const {title, summary} = item;
         const metadata = Object.keys(item)
             .map(key => {
-                return journalCardMapping[key] ? {label: journalCardMapping[key], text: item[key]} : null;
+                return journalCardLabels[key] ? {label: journalCardLabels[key], text: item[key]} : null;
             })
             .filter(item => item !== null);
         return {
@@ -20,16 +20,16 @@ const createMapping = list => {
 
 };
 
-const createMapping2 = list => {
+const journalCardLabelMapping2 = list => {
     return list.map(item => {
-        const {title, summary} = item;
+        const {journalTitle, contentType, summary} = item;
         const metadata = Object.keys(item)
             .map(key => {
-                return journalCardMapping[key] ? {label: journalCardMapping[key], text: item[key]} : null;
+                return journalCardLabels[key] ? {label: journalCardLabels[key], text: item[key]} : null;
             })
             .filter(item => item !== null);
         return {
-            title: `${title} v2`, summary, metadata
+            title: journalTitle, cardLabel: contentType, summary, metadata
         }
     });
 
@@ -37,29 +37,24 @@ const createMapping2 = list => {
 
 const consistentLinks = config => {
     const productLinks = [{
-        url: "#",
-        label: "Product"
-    },
-        {
-            url: "#",
-            label: "Another product"
-        }];
+        url: "#", label: "Product"
+    }, {
+        url: "#", label: "Another product"
+    }];
 
     const legalLinks = [{
-        url: "#",
-        label: "Legal"
+        url: "#", label: "Legal"
     }];
 
     const featureLinks = [{
-        url: "#",
-        label: "Feature"
-    },
-        {
-            url: "#",
-            label: "Another feature"
-        }];
-    const data = {}
+        url: "#", label: "Feature"
+    }, {
+        url: "#", label: "Another feature"
+    }];
+    const data = {};
+
     data.links = [];
+
     if (config.isProduct) {
         data.links = data.links.concat(productLinks);
     }
@@ -76,7 +71,5 @@ const consistentLinks = config => {
 };
 
 module.exports = {
-    createMapping,
-    createMapping2,
-    consistentLinks
+    journalCardLabelMapping, journalCardLabelMapping2, consistentLinks
 }
