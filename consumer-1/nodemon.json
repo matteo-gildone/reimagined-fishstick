@@ -1,0 +1,22 @@
+{
+  "restartable": "rs",
+  "watch": [
+    "views",
+    "assets",
+    "app.js",
+    "../design-system"
+  ],
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "../design-system/**/*.hbs",
+    "public"
+  ],
+  "verbose": true,
+  "exec": "npm run compile:scss && DEV_MODE=true DEBUG=Consumer1:server node app.js",
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "Consumer1:server"
+  },
+  "ext": "js,scss,svg,json"
+}

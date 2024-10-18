@@ -1,0 +1,25 @@
+.footer {
+  padding: $spacing-layout;
+  background-color: $color-background;
+  border-top: 1px solid $color-border;
+
+  &__content {
+    font-family: $font-family-primary;
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+  }
+
+  &__links {
+    margin-top: $spacing-4;
+
+    a {
+      color: $color-accent;
+      text-decoration: none;
+      margin-right: $spacing-4;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

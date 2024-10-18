@@ -16,11 +16,11 @@ registerComponent('header/header', {
     transform: consistentLinks
 });
 
-registerComponent('header/header', {
-    version: 'v2',
-    template: version => `${version}/header/header`,
-    transform: consistentLinks
-});
+// registerComponent('header/header', {
+//     version: 'v2',
+//     template: version => `${version}/header/header`,
+//     transform: consistentLinks
+// });
 
 registerComponent('card/card', {
     version: 'v1',
@@ -28,17 +28,17 @@ registerComponent('card/card', {
     transform: journalCardLabelMapping
 });
 
-registerComponent('card/card', {
-    version: 'v2',
-    template: version => `${version}/card/card`,
-    transform: journalCardLabelMapping
-});
-
-registerComponent('card/card', {
-    version: 'v3',
-    template: version => `v2/card/card`,
-    transform: journalCardLabelMapping2
-});
+// registerComponent('card/card', {
+//     version: 'v2',
+//     template: version => `${version}/card/card`,
+//     transform: journalCardLabelMapping
+// });
+//
+// registerComponent('card/card', {
+//     version: 'v3',
+//     template: version => `v2/card/card`,
+//     transform: journalCardLabelMapping2
+// });
 
 app.get('/', (req, res) => {
     res.send('Design system service');

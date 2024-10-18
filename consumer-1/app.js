@@ -6,7 +6,7 @@ const path = require('path');
 const axios = require("axios");
 const app = express();
 const port = 3003;
-const version = 'v2';
+const version = 'v1';
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

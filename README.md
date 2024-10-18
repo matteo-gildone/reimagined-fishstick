@@ -63,3 +63,9 @@ sequenceDiagram
   DSS->>DSS: Compile templates with data/configurations
   DSS-->>C: Return HTML
 ```
+
+## TODO:
+
+- scala missing handlebars so endpoint for teams that don't have feds
+- version manager for transform changes or template changes
+- manage multiple version of the template

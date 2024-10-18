@@ -1,0 +1,34 @@
+.header {
+  font-family: $font-family-primary;
+  padding: $spacing-component;
+  background-color: $color-background;
+  border-bottom: 1px solid $color-border;
+
+  &__logo {
+    font-family: $font-family-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-accent;
+    width: $spacing-16;
+  }
+
+  &__nav {
+    margin: 0 auto;
+    max-width: 1028px;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: $color-text-secondary;
+      font-size: $font-size-body;
+      text-decoration: none;
+      margin-right: $spacing-4;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+}

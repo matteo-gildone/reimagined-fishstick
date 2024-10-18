@@ -1,0 +1,16 @@
+<div class="mt-5 p-5 flex shadow-lg shadow-inner">
+    <div class="flex-1">
+        <h2 class="">{{title}}</h2>
+        <p class="">{{summary}}</p>
+    </div>
+    <div class="w-40">
+        <dl>
+            {{#each metadata}}
+                <div>
+                    <dt>{{label}}</dt>
+                    <dd>{{text}}</dd>
+                </div>
+            {{/each}}
+        </dl>
+    </div>
+</div>

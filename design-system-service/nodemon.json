@@ -1,0 +1,20 @@
+{
+  "restartable": "rs",
+  "watch": [
+    "utils",
+    "app.js",
+    "../design-system"
+  ],
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "../design-system/**/*.scss"
+  ],
+  "verbose": true,
+  "exec": "npm run copy:templates && DEV_MODE=true DEBUG=DSS:server node app.js",
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "DSS:server"
+  },
+  "ext": "js,hbs,svg,json"
+}
