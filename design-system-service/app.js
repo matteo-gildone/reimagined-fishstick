@@ -3,29 +3,39 @@ const hbs = require('hbs');
 const app = express();
 const port = 3001;
 
+const {ds} = require('./utils/ds');
+const {consistentLinks, createMapping, createMapping2} = require("./utils/mapping");
+
+const {registerComponent, getSpecificVersion} = ds();
+
 hbs.registerPartials(__dirname + '/eds');
 
-const journalCardMapping = {
-    "publishingModel": "Publishing model",
-    "impactFactor": "Impact factor",
-    "download": "Download",
-    "submission": "Submission to first decision (median)"
-};
 
-const createMapping = list => {
-    return list.map(item => {
-        const {title, summary} = item;
-        const metadata = Object.keys(item)
-            .map(key => {
-                return journalCardMapping[key] ? {label: journalCardMapping[key], text: item[key]} : null;
-            })
-            .filter(item => item !== null);
-        return {
-            title, summary, metadata
-        }
-    });
+registerComponent('header/header', {
+    version: 'v1',
+    template: version => `${version}/header/header`,
+    transform: consistentLinks
+});
 
-}
+registerComponent('header/header', {
+    version: 'v2',
+    template: version => `${version}/header/header`,
+    transform: consistentLinks
+});
+
+registerComponent('card/card', {
+    version: 'v1',
+    template: version => `${version}/card/card`,
+    transform: createMapping
+});
+
+registerComponent('card/card', {
+    version: 'v2',
+    template: version => `${version}/card/card`,
+    transform: createMapping2
+});
+
+
 
 app.get('/', (req, res) => {
     res.send('Design system service');
@@ -33,50 +43,21 @@ app.get('/', (req, res) => {
 
 app.get('/header', (req, res) => {
     const {query} = req;
-    const productLinks = [{
-            url: "#",
-            label: "Product"
-        },
-        {
-            url: "#",
-            label: "Another product"
-        }];
+    const {version} = query;
+    const component = getSpecificVersion('header/header', version);
+    const data = component.transform(query);
 
-    const legalLinks = [{
-        url: "#",
-        label: "Legal"
-    }];
-
-    const featureLinks = [{
-            url: "#",
-            label: "Feature"
-        },
-        {
-            url: "#",
-            label: "Another feature"
-        }];
-    const data = {}
-    data.links = [];
-    if (query.isProduct) {
-        data.links = data.links.concat(productLinks);
-    }
-
-    if (query.isLegal) {
-        data.links = data.links.concat(legalLinks);
-    }
-
-    if (query.isFeature) {
-        data.links = data.links.concat(featureLinks);
-    }
-
-    const template = hbs.compile('{{> header/header}}')
+    const template = hbs.compile(`{{> ${component.template(version)}}}`);
     res.send(template(data));
 });
 
 app.get('/journal-card-list', (req, res) => {
     const {query} = req;
-    const template = hbs.compile('{{#each .}}{{> card/card}}{{/each}}')
-    res.send(template(createMapping(query.journals)));
+    const {version} = query;
+    const component = getSpecificVersion('card/card', version);
+    const template = hbs.compile(`{{#each .}}{{> ${component.template(version)}}}{{/each}}`)
+
+    res.send(template(component.transform(query.journals)));
 });
 
 app.listen(port, () => {

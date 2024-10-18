@@ -6,6 +6,7 @@ const path = require('path');
 const axios = require("axios");
 const app = express();
 const port = 3003;
+const version = 'v2';
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -17,13 +18,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res, next) => {
     try {
-        const headerParams = {isProduct: true, isLegal: true};
+        const headerParams = {isProduct: true, isLegal: true, version};
         const headerResponse = await axios.get('http://localhost:3001/header', {params: headerParams});
         const journalListAPIResponse = await axios.get('http://localhost:3002/journal-list');
         const journalListResponse = await axios.get('http://localhost:3001/journal-card-list', {
                 params: {
-                    journals: [...journalListAPIResponse.data]
-
+                    journals: [...journalListAPIResponse.data],
+                    version
                 }
             })
         ;
