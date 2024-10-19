@@ -1,16 +1,18 @@
-<div class="mt-5 p-5 flex shadow-lg shadow-inner">
-    <div class="flex-1">
-        <h2 class="">{{title}}</h2>
-        <p class="">{{summary}}</p>
+<article class="card">
+    <div class="">
+        <h2 class="card__title">{{title}}</h2>
+        <p class="card__content">{{summary}}</p>
     </div>
-    <div class="w-40">
-        <dl>
-            {{#each metadata}}
-                <div>
-                    <dt>{{label}}</dt>
-                    <dd>{{text}}</dd>
-                </div>
-            {{/each}}
-        </dl>
-    </div>
-</div>
+    {{#if metadata}}
+        <div class="card__sidebar">
+            <dl>
+                {{#each metadata}}
+                    <div>
+                        <dt>{{label}}</dt>
+                        <dd>{{text}}</dd>
+                    </div>
+                {{/each}}
+            </dl>
+        </div>
+    {{/if}}
+</article>

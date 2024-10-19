@@ -3,6 +3,12 @@
   background-color: $color-background;
   border-top: 1px solid $color-border;
 
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+
   &__content {
     font-family: $font-family-primary;
     color: $color-text-secondary;
@@ -10,16 +16,13 @@
   }
 
   &__links {
-    margin-top: $spacing-4;
+    color: $color-text-secondary;
+    font-size: $font-size-body;
+    text-decoration: none;
+    margin-right: $spacing-4;
 
-    a {
+    &:hover {
       color: $color-accent;
-      text-decoration: none;
-      margin-right: $spacing-4;
-
-      &:hover {
-        text-decoration: underline;
-      }
     }
   }
 }

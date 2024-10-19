@@ -27,12 +27,21 @@ app.get('/', async (req, res, next) => {
                     version
 
                 }
-            })
-        ;
+            });
+
+        const footerResponse = await axios.get('http://localhost:3001/footer', {params: {links: [{
+                    url: "#", label: "Product"
+                }, {
+                    url: "#", label: "Another product"
+                }], version}});
+
+        console.log(footerResponse.data);
+
         res.render('index', {
             title: 'Homepage',
             headerPlaceholder: headerResponse.data,
-            journalListPlaceholder: journalListResponse.data
+            journalListPlaceholder: journalListResponse.data,
+            footerPlaceholder: footerResponse.data
         });
     } catch (err) {
         return new hbs.SafeString(err.message, {});

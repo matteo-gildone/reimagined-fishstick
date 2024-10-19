@@ -3,6 +3,9 @@
   border: 1px solid $color-border;
   border-radius: $border-radius-lg;
   padding: $spacing-component;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: $spacing-component;
 
   &__title {
     font-family: $font-family-primary;
@@ -19,9 +22,21 @@
     color: $color-text-secondary;
   }
 
-  &__footer {
-    margin-top: $spacing-4;
-    padding-top: $spacing-4;
-    border-top: 1px solid $color-border;
+  &__sidebar {
+    margin-left: $spacing-4;
+    padding-left: $spacing-4;
+    border-left: 1px solid $color-border;
+    width: 280px;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: $font-weight-bold;
+  }
+
+  dl {
+    display: flex;
+    flex-direction: column;
+    gap:  $spacing-4;
   }
 }

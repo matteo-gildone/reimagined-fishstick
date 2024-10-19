@@ -22,6 +22,11 @@ registerComponent('header/header', {
 //     transform: consistentLinks
 // });
 
+registerComponent('footer/footer', {
+    version: 'v1',
+    template: version => `${version}/footer/footer`
+});
+
 registerComponent('card/card', {
     version: 'v1',
     template: version => `${version}/card/card`,
@@ -52,6 +57,14 @@ app.get('/header', (req, res) => {
     const template = hbs.compile(`{{> ${component.template(version)}}}`);
 
     res.send(template(data));
+});
+
+app.get('/footer', (req, res) => {
+    const {query} = req;
+    const {version, links} = query;
+    const component = getSpecificVersion('footer/footer', version);
+    const template = hbs.compile(`{{> ${component.template(version)}}}`);
+    res.send(template({links: links}));
 });
 
 app.get('/journal-card-list', (req, res) => {
