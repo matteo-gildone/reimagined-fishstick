@@ -11,10 +11,10 @@
     "../design-system/**/*.scss"
   ],
   "verbose": true,
-  "exec": "npm run copy:templates && DEV_MODE=true DEBUG=DSS:server node app.js",
+  "exec": "npm run copy:templates && npm run copy:assets && DEV_MODE=true DEBUG=DSS:server node app.js",
   "env": {
     "NODE_ENV": "development",
     "DEBUG": "DSS:server"
   },
-  "ext": "js,hbs,svg,json"
+  "ext": "js, scss,hbs,svg,json"
 }

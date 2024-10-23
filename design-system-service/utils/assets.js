@@ -9,7 +9,7 @@ const movePartials = (src, dest) => {
     if (fsj.exists(src)) {
         fsj.copy(src, dest, {
             overwrite: true,
-            matching: '*.hbs'
+            matching: '*.scss'
         });
         debug(`🏁 Finished`);
     } else {

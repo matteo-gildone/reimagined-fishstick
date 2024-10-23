@@ -1,25 +1,27 @@
 {
-  "name": "design-system-service",
+  "name": "consumer-1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy:templates": "DEBUG=service:move:partials node utils/templates.js",
-    "copy:assets": "DEBUG=service:move:assets node utils/assets.js",
     "start": "node app.js",
+    "compile:scss": "sass --style=expanded assets/styles/main.scss:public/css/main.css",
     "dev": "nodemon"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.7",
+    "cookie-parser": "^1.4.7",
     "debug": "^4.3.7",
     "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
     "fs-jetpack": "^5.1.0",
-    "hbs": "^4.2.0",
-    "sass": "^1.80.2"
+    "hbs": "^4.2.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "sass": "^1.80.2"
   }
 }

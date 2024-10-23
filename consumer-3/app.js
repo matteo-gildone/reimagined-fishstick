@@ -5,7 +5,7 @@ const {promisify} = require('util');
 const path = require('path');
 const axios = require("axios");
 const app = express();
-const port = 3004;
+const port = 3005;
 const version = 'v1';
 
 app.set('views', path.join(__dirname, 'views'));
@@ -34,12 +34,13 @@ app.get('/', async (req, res, next) => {
                 }, {
                     url: "#", label: "Another product"
                 }], version}});
-
+        const coreResponse = await axios.get('http://localhost:3001/core');
         res.render('index', {
             title: 'Homepage',
             headerPlaceholder: headerResponse.data,
             journalListPlaceholder: journalListResponse.data,
-            footerPlaceholder: footerResponse.data
+            footerPlaceholder: footerResponse.data,
+            coreStyles: coreResponse.data
         });
     } catch (err) {
         return new hbs.SafeString(err.message, {});

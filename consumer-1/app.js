@@ -21,10 +21,12 @@ app.get('/', async (req, res, next) => {
         const headerParams = {isProduct: true, isLegal: true, version};
         const headerResponse = await axios.get('http://localhost:3001/header', {params: headerParams});
         const journalListAPIResponse = await axios.get('http://localhost:3002/journal-list');
+        // const journalListAPIResponse = await axios.get('http://localhost:3002/v2/journal-list');
         const journalListResponse = await axios.get('http://localhost:3001/journal-card-list', {
                 params: {
                     journals: [...journalListAPIResponse.data],
                     version
+                    // version: 'v2'
                 }
             });
 
@@ -33,7 +35,6 @@ app.get('/', async (req, res, next) => {
                 }, {
                     url: "#", label: "Another product"
                 }], version}});
-
 
         res.render('index', {
             title: 'Homepage',

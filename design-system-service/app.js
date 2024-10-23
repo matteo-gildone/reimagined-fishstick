@@ -1,7 +1,10 @@
 const express = require('express');
 const hbs = require('hbs');
+const sass = require('sass');
 const app = express();
 const port = 3001;
+const fs = require('fs');
+
 
 const {ds} = require('./utils/ds');
 const {consistentLinks, journalCardLabelMapping, journalCardLabelMapping2} = require("./utils/mapping");
@@ -10,38 +13,27 @@ const {registerComponent, getSpecificVersion} = ds();
 
 hbs.registerPartials(__dirname + '/eds');
 
+// TODO: Automate component registration
 registerComponent('header/header', {
     version: 'v1',
-    template: version => `${version}/header/header`,
+    template: version => `${version}/components/header/header`,
     transform: consistentLinks
 });
 
-// registerComponent('header/header', {
-//     version: 'v2',
-//     template: version => `${version}/header/header`,
-//     transform: consistentLinks
-// });
-
 registerComponent('footer/footer', {
     version: 'v1',
-    template: version => `${version}/footer/footer`
+    template: version => `${version}/components/footer/footer`
 });
 
 registerComponent('card/card', {
     version: 'v1',
-    template: version => `${version}/card/card`,
+    template: version => `${version}/components/card/card`,
     transform: journalCardLabelMapping
 });
 
 // registerComponent('card/card', {
 //     version: 'v2',
-//     template: version => `${version}/card/card`,
-//     transform: journalCardLabelMapping
-// });
-//
-// registerComponent('card/card', {
-//     version: 'v3',
-//     template: version => `v2/card/card`,
+//     template: version => `v1/components/card/card`,
 //     transform: journalCardLabelMapping2
 // });
 
@@ -75,6 +67,17 @@ app.get('/journal-card-list', (req, res) => {
     const template = hbs.compile(`{{#each .}}{{> ${component.template(version)}}}{{/each}}`)
 
     res.send(template(data));
+});
+
+app.get('/core', (req, res) => {
+    const {query} = req;
+    try {
+        const data = fs.readFileSync('./dist/main.css', 'utf8');
+        res.send(data);
+    } catch (err) {
+        console.error(err);
+    }
+
 });
 
 app.listen(port, () => {

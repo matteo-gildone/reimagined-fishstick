@@ -69,3 +69,4 @@ sequenceDiagram
 - scala missing handlebars so endpoint for teams that don't have feds
 - version manager for transform changes or template changes
 - manage multiple version of the template
+- versioned mappers

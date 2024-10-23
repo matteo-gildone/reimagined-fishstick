@@ -1,0 +1,8 @@
+.badge {
+  display: inline-block;
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-component;
+  color: $color-accent;
+}

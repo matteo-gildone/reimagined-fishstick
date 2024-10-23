@@ -131,6 +131,7 @@ dist
 .pnp.*
 .idea/
 design-system-service/eds/
+design-system-service/dist/
 consumer-1/public/
 consumer-2/public/
 
